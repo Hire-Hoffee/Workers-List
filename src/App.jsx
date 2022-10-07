@@ -1,5 +1,7 @@
 import { useEffect } from "react";
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
+
+import TopAppBarComponent from "./components/UI/TopAppBarComponent";
 
 function App() {
   const navigate = useNavigate();
@@ -11,23 +13,13 @@ function App() {
   });
 
   return (
-    <div className="text-center text-3xl m-20">
-      <p>Hello React</p>
+    <div>
+      <TopAppBarComponent />
 
-      <br />
+      <div>
+        <Outlet />
+      </div>
 
-      <ul>
-        <li>
-          <Link to="/main">Main</Link>
-        </li>
-        <li>
-          <Link to="/user">User</Link>
-        </li>
-      </ul>
-
-      <br />
-
-      <Outlet />
     </div>
   );
 }
