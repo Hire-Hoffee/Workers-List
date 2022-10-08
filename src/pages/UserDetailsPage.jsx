@@ -2,11 +2,17 @@ import React from "react";
 
 import star_icon from "../assets/icons/star_icon.svg";
 import phone_icon from "../assets/icons/phone_icon.svg";
+import arrow_back_icon from "../assets/icons/arrow_back_icon.svg";
 
 function UserDetailsPage() {
   return (
     <div>
       <div className="h-[280px] bg-[#F7F7F8] flex items-end justify-center">
+
+        <button className="absolute top-7 left-8">
+          <img src={arrow_back_icon} alt="arrow_back_icon" />
+        </button>
+
         <div className="mb-8 flex flex-col justify-between items-center h-[184px]">
           <img
             src="https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/645.jpg"
