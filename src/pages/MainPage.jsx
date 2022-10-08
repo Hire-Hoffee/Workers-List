@@ -6,10 +6,13 @@ import TopAppBarComponent from "../components/UI/TopAppBarComponent";
 
 function MainPage() {
   return (
-    <div>
+    <div className="relative">
       <TopAppBarComponent />
       
       <div className="m-4">
+        <UserCard />
+        <UserCard />
+        <UserCard />
         <UserCard />
         <LoadingCard />
       </div>
