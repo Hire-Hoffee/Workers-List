@@ -1,9 +1,19 @@
 import React from "react";
+import UserCard from "../components/UserCard";
 
 function MainPage() {
   return (
-    <div>
-      <p>MainPage</p>
+    <div className="m-4">
+      <UserCard />
+      <UserCard />
+      <UserCard />
+      <UserCard />
+      <UserCard />
+      <UserCard />
+      <UserCard />
+      <UserCard />
+      <UserCard />
+      <UserCard />
     </div>
   );
 }

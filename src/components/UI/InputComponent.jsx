@@ -15,7 +15,7 @@ function InputComponent() {
       <div
         className={
           "flex absolute inset-y-0 items-center pl-3 " +
-          (activeSearch == "" ? "hidden" : "")
+          (activeSearch === "" ? "hidden" : "")
         }
       >
         <img src={search_icon_active} alt="search_icon" />
