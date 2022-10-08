@@ -18,13 +18,23 @@ function FilterComponent() {
             <label className="ml-[14px]" for="alphabet">
               По алфавиту
             </label>
-            <input type="radio" className="h-5 w-5 accent-custom-purple text-red-700 " name="filter" id="alphabet" />
+            <input
+              type="radio"
+              className="h-5 w-5 accent-custom-purple text-red-700 "
+              name="filter"
+              id="alphabet"
+            />
           </div>
           <div className="flex flex-row-reverse">
             <label className="ml-[14px]" for="birth">
               По дню рождения
             </label>
-            <input type="radio" className="h-5 w-5 accent-custom-purple" name="filter" id="birth" />
+            <input
+              type="radio"
+              className="h-5 w-5 accent-custom-purple"
+              name="filter"
+              id="birth"
+            />
           </div>
         </div>
       </div>

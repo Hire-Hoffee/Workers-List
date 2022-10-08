@@ -1,7 +1,7 @@
 import React from "react";
 
-import star_icon from "../assets/icons/star_icon.svg"
-import phone_icon from "../assets/icons/phone_icon.svg"
+import star_icon from "../assets/icons/star_icon.svg";
+import phone_icon from "../assets/icons/phone_icon.svg";
 
 function UserDetailsPage() {
   return (

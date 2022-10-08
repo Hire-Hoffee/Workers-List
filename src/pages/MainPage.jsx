@@ -8,7 +8,7 @@ function MainPage() {
   return (
     <div className="relative">
       <TopAppBarComponent />
-      
+
       <div className="m-4">
         <UserCard />
         <UserCard />
