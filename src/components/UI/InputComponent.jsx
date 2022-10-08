@@ -8,7 +8,7 @@ function InputComponent() {
   const [activeSearch, setActiveSearch] = useState("");
 
   return (
-    <div className="mx-4 relative">
+    <div className="mx-4 relative mt-[50px] sm:mt-0">
       <div className="flex absolute inset-y-0 items-center pl-3">
         <img src={search_icon} alt="search_icon" />
       </div>

@@ -4,8 +4,8 @@ import InputComponent from "./InputComponent";
 
 function TopAppBarComponent() {
   return (
-    <div className="w-full h-[152px] flex flex-col justify-between">
-      <div className="mx-6 mt-4">
+    <div className="w-full sm:h-[152px] h-[140px] flex flex-col justify-between">
+      <div className="mx-6 mt-4 sm:block hidden">
         <h1 className="font-bold text-2xl">Поиск</h1>
       </div>
 
