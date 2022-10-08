@@ -1,8 +1,6 @@
 import { useEffect } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 
-import TopAppBarComponent from "./components/UI/TopAppBarComponent";
-
 function App() {
   const navigate = useNavigate();
 
@@ -14,12 +12,7 @@ function App() {
 
   return (
     <div>
-      <TopAppBarComponent />
-
-      <div>
-        <Outlet />
-      </div>
-
+      <Outlet />
     </div>
   );
 }
