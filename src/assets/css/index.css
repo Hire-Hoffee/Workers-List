@@ -28,3 +28,7 @@ body {
   background-color: #fff;
   font-family: "Inter", serif;
 }
+
+.active {
+  @apply border-b-2 border-custom-purple font-semibold text-black;
+}
