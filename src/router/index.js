@@ -16,7 +16,7 @@ const routes = createBrowserRouter([
         element: <MainPage />,
       },
       {
-        path: "user",
+        path: "user/:user_id",
         element: <UserDetailsPage />,
       },
     ],

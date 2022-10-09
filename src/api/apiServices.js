@@ -1,6 +1,14 @@
 import mainInstance from ".";
 
 const apiServices = {
+  async getAllUsers() {
+    try {
+      const result = await mainInstance.get("/users?__example=all");
+      return result;
+    } catch (error) {
+      throw error;
+    }
+  },
   async getSpecificUsers(department) {
     try {
       const result = await mainInstance.get(`/users?__example=${department}`);
