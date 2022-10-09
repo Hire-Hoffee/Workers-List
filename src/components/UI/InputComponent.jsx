@@ -30,12 +30,8 @@ function InputComponent() {
           activeSearch
         }
         placeholder="Введи имя, тег, почту..."
-        onFocus={() => {
-          setActiveSearch("active");
-        }}
-        onBlur={() => {
-          setActiveSearch("");
-        }}
+        onFocus={() => setActiveSearch("active")}
+        onBlur={() => setActiveSearch("")}
       />
     </div>
   );
