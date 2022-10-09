@@ -12,7 +12,7 @@ const routes = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "main",
+        path: "main/:query",
         element: <MainPage />,
       },
       {
