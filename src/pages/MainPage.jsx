@@ -8,14 +8,14 @@ import LoadingComponent from "../components/LoadingComponent";
 import apiServices from "../api/apiServices";
 
 function MainPage() {
-  const [users, setData] = useState([]);
+  const [users, setUsers] = useState([]);
   const [isLoading, setLoading] = useState(false);
   const { query } = useParams();
 
   useEffect(() => {
     (async () => {
       setLoading(true);
-      setData((await apiServices.getSpecificUsers(query)).data.items);
+      setUsers((await apiServices.getSpecificUsers(query)).data.items);
       setLoading(false);
     })();
   }, [query]);

@@ -14,7 +14,7 @@ function ErrorPage() {
           Какой-то сверхразум все сломал
         </h2>
         <p className="text-[#97979B]">Постараемся быстро починить</p>
-        <a href="/main" className="text-custom-purple font-semibold">
+        <a href="/main/all" className="text-custom-purple font-semibold">
           Попробовать снова
         </a>
       </div>

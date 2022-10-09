@@ -6,7 +6,7 @@ function App() {
 
   useEffect(() => {
     if (window.location.pathname === "/") {
-      return navigate("/main");
+      return navigate("/main/all");
     }
   });
 
