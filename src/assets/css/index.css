@@ -30,5 +30,5 @@ body {
 }
 
 .active {
-  @apply border-b-2 border-custom-purple font-semibold text-black;
+  @apply border-b-2 py-1.5 border-custom-purple font-semibold text-black;
 }
