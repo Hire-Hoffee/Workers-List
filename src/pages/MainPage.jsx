@@ -17,12 +17,10 @@ function MainPage() {
   const updateUsers = useDispatch();
 
   useEffect(() => {
-    if (usersArray.length === 0) {
-      (async () => {
-        const result = (await apiServices.getSpecificUsers(query)).data.items;
-        updateUsers(changeUsersArray(result));
-      })();
-    }
+    (async () => {
+      const result = (await apiServices.getSpecificUsers(query)).data.items;
+      updateUsers(changeUsersArray(result));
+    })();
   }, [query]);
 
   return (
