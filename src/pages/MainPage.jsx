@@ -1,5 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+
+import { changeUsersArray } from "../store/slices/usersSlice";
 
 import UserCard from "../components/UserCard";
 import TopAppBarComponent from "../components/UI/TopAppBarComponent";
@@ -8,27 +11,28 @@ import LoadingComponent from "../components/LoadingComponent";
 import apiServices from "../api/apiServices";
 
 function MainPage() {
-  const [users, setUsers] = useState([]);
-  const [isLoading, setLoading] = useState(false);
+  const usersArray = useSelector((state) => state.users.data);
+  const isLoading = useSelector((state) => state.utils.data.isLoading);
   const { query } = useParams();
+  const updateUsers = useDispatch();
 
   useEffect(() => {
-    (async () => {
-      setLoading(true);
-      setUsers((await apiServices.getSpecificUsers(query)).data.items);
-      setLoading(false);
-    })();
+    if (usersArray.length === 0) {
+      (async () => {
+        const result = (await apiServices.getSpecificUsers(query)).data.items;
+        updateUsers(changeUsersArray(result));
+      })();
+    }
   }, [query]);
 
   return (
     <div className="relative">
       <TopAppBarComponent />
-
       {isLoading ? (
         <LoadingComponent />
       ) : (
         <div className="m-4">
-          {users.map((item) => (
+          {usersArray.map((item) => (
             <UserCard user={item} key={item.id} />
           ))}
         </div>

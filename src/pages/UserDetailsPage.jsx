@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import parseNumber from "libphonenumber-js";
 
@@ -13,17 +14,21 @@ import apiServices from "../api/apiServices";
 
 function UserDetailsPage() {
   const [user, setUser] = useState({});
-  const [isLoading, setLoading] = useState(false);
+  const usersArray = useSelector((state) => state.users.data);
+  const isLoading = useSelector((state) => state.utils.data.isLoading);
   const { user_id } = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
     (async () => {
-      setLoading(true);
-      const result = (await apiServices.getAllUsers()).data.items;
-      const userArray = result.filter((item) => item.id === user_id);
-      setUser(userArray[0]);
-      setLoading(false);
+      if (usersArray.length === 0) {
+        const result = (await apiServices.getAllUsers()).data.items;
+        const userArray = result.filter((item) => item.id === user_id);
+        setUser(userArray[0]);
+        return;
+      }
+      setUser(usersArray.filter((item) => item.id === user_id)[0]);
+      return;
     })();
   }, [user_id]);
 
@@ -35,7 +40,11 @@ function UserDetailsPage() {
         <div>
           <div className="h-[280px] bg-[#F7F7F8] flex items-end justify-center">
             <button className="absolute top-7 left-8">
-              <img src={arrow_back_icon} alt="arrow_back_icon" onClick={() => navigate(-1)} />
+              <img
+                src={arrow_back_icon}
+                alt="arrow_back_icon"
+                onClick={() => navigate(-1)}
+              />
             </button>
 
             <div className="mb-8 flex flex-col justify-between items-center h-[184px]">

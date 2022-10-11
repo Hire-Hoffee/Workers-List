@@ -1,4 +1,5 @@
 import axios from "axios";
+import { requestInterceptor, responseInterceptor } from "./interceptors";
 
 const mainInstance = axios.create({
   baseURL:
@@ -7,5 +8,8 @@ const mainInstance = axios.create({
     "Content-Type": "application/json",
   },
 });
+
+mainInstance.interceptors.request.use(requestInterceptor);
+mainInstance.interceptors.response.use(responseInterceptor);
 
 export default mainInstance;
