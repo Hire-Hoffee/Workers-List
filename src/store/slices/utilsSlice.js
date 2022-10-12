@@ -6,6 +6,7 @@ export const utilsSlice = createSlice({
     data: {
       isLoading: false,
       isError: false,
+      isOpenFilter: false,
     },
   },
   reducers: {
@@ -15,9 +16,12 @@ export const utilsSlice = createSlice({
     changeError: (state, action) => {
       state.data.isError = action.payload;
     },
+    changeShowFilter: (state, action) => {
+      state.data.isOpenFilter = action.payload;
+    },
   },
 });
 
-export const { changeLoading, changeError } = utilsSlice.actions;
+export const { changeLoading, changeError, changeShowFilter } = utilsSlice.actions;
 
 export default utilsSlice.reducer;

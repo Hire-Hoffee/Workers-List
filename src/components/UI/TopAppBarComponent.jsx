@@ -1,9 +1,14 @@
 import React from "react";
+import { useSelector } from "react-redux";
+
 
 import InputComponent from "./InputComponent";
 import NavigationLinks from "./NavigationLinks";
+import FilterComponent from "../FilterComponent";
 
 function TopAppBarComponent() {
+  const isOpenFilter = useSelector((state) => state.utils.data.isOpenFilter);
+
   return (
     <div className="w-full sm:h-[152px] h-[140px] flex flex-col justify-between">
       <div className="mx-6 mt-4 sm:block hidden">
@@ -11,6 +16,8 @@ function TopAppBarComponent() {
       </div>
 
       <InputComponent />
+
+      {isOpenFilter ? <FilterComponent /> : false}
 
       <NavigationLinks />
     </div>

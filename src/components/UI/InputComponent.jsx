@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+
+import { changeShowFilter } from "../../store/slices/utilsSlice";
 
 import search_icon from "../../assets/icons/search_icon.svg";
 import search_icon_active from "../../assets/icons/search_icon_active.svg";
@@ -6,6 +9,7 @@ import filter_icon from "../../assets/icons/filter_icon.svg";
 
 function InputComponent() {
   const [activeSearch, setActiveSearch] = useState("");
+  const updateShowFilter = useDispatch();
 
   return (
     <div className="mx-4 relative mt-[50px] sm:mt-0">
@@ -20,7 +24,12 @@ function InputComponent() {
       >
         <img src={search_icon_active} alt="search_icon" />
       </div>
-      <div className="flex absolute inset-y-0 right-0 items-center pr-3">
+      <div
+        className="flex absolute inset-y-0 right-0 items-center pr-3 cursor-pointer"
+        onClick={() => {
+          updateShowFilter(changeShowFilter(true));
+        }}
+      >
         <img src={filter_icon} alt="search_icon" />
       </div>
       <input
