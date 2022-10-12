@@ -2,11 +2,15 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
-import { changeUsersArray, sortUsersAlphabet } from "../store/slices/usersSlice";
+import {
+  changeUsersArray,
+  sortUsersAlphabet,
+} from "../store/slices/usersSlice";
 
 import UserCard from "../components/UserCard";
 import TopAppBarComponent from "../components/UI/TopAppBarComponent";
 import LoadingComponent from "../components/LoadingComponent";
+import NotFoundComponent from "../components/NotFoundComponent";
 
 import apiServices from "../api/apiServices";
 
@@ -27,8 +31,11 @@ function MainPage() {
   return (
     <div className="relative">
       <TopAppBarComponent />
+
       {isLoading ? (
         <LoadingComponent />
+      ) : usersArray.length == 0 ? (
+        <NotFoundComponent />
       ) : (
         <div className="m-4">
           {usersArray.map((item) => (
