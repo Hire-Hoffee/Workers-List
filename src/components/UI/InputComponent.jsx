@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
 import { changeShowFilter } from "../../store/slices/utilsSlice";
+import { usersSearching } from "../../store/slices/usersSlice";
 
 import search_icon from "../../assets/icons/search_icon.svg";
 import search_icon_active from "../../assets/icons/search_icon_active.svg";
@@ -9,7 +10,9 @@ import filter_icon from "../../assets/icons/filter_icon.svg";
 
 function InputComponent() {
   const [activeSearch, setActiveSearch] = useState("");
+  const [input, setInput] = useState("");
   const updateShowFilter = useDispatch();
+  const updateUsers = useDispatch();
 
   return (
     <div className="mx-4 relative mt-[50px] sm:mt-0">
@@ -33,6 +36,12 @@ function InputComponent() {
         <img src={filter_icon} alt="search_icon" />
       </div>
       <input
+        value={input}
+        onInput={(e) => {
+          setInput(e.target.value);
+          updateUsers(usersSearching(input))
+        }}
+        
         type="text"
         className={
           "rounded-2xl h-10 bg-[#F7F7F8] w-full pl-11 font-medium text-[15px] focus:outline-none caret-custom-purple " +

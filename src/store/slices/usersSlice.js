@@ -3,11 +3,13 @@ import { createSlice } from "@reduxjs/toolkit";
 export const usersSlice = createSlice({
   name: "users",
   initialState: {
+    searchedArray: [],
     data: [],
   },
   reducers: {
     changeUsersArray: (state, action) => {
       state.data = [...action.payload];
+      state.searchedArray = [...action.payload];
     },
     sortUsersBirth: (state, action) => {
       state.data.forEach((data) => {
@@ -38,10 +40,24 @@ export const usersSlice = createSlice({
         return 0;
       });
     },
+    usersSearching: (state, action) => {
+      state.data = state.searchedArray.filter((item) => {
+        return (
+          (item.firstName + " " + item.lastName).match(
+            new RegExp(action.payload, "gi")
+          ) != null ||
+          item.userTag.match(new RegExp(action.payload, "gi")) != null
+        );
+      });
+    },
   },
 });
 
-export const { changeUsersArray, sortUsersBirth, sortUsersAlphabet } =
-  usersSlice.actions;
+export const {
+  changeUsersArray,
+  sortUsersBirth,
+  sortUsersAlphabet,
+  usersSearching,
+} = usersSlice.actions;
 
 export default usersSlice.reducer;
