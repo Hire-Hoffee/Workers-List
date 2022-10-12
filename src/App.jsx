@@ -1,7 +1,11 @@
 import { useEffect } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+
+import ErrorPage from "./pages/ErrorPage";
 
 function App() {
+  const isError = useSelector((state) => state.utils.data.isError);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -11,9 +15,15 @@ function App() {
   });
 
   return (
-    <div>
-      <Outlet />
-    </div>
+    <>
+      {isError ? (
+        <ErrorPage />
+      ) : (
+        <div>
+          <Outlet />
+        </div>
+      )}
+    </>
   );
 }
 

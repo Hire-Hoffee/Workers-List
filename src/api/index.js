@@ -1,5 +1,9 @@
 import axios from "axios";
-import { requestInterceptor, responseInterceptor } from "./interceptors";
+import {
+  requestInterceptor,
+  responseInterceptor,
+  errorInterceptor,
+} from "./interceptors";
 
 const mainInstance = axios.create({
   baseURL:
@@ -9,7 +13,7 @@ const mainInstance = axios.create({
   },
 });
 
-mainInstance.interceptors.request.use(requestInterceptor);
-mainInstance.interceptors.response.use(responseInterceptor);
+mainInstance.interceptors.request.use(requestInterceptor, errorInterceptor);
+mainInstance.interceptors.response.use(responseInterceptor, errorInterceptor);
 
 export default mainInstance;

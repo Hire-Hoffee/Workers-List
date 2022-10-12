@@ -1,13 +1,18 @@
-import store from "../store"
+import store from "../store";
 
 const requestInterceptor = (config) => {
-  store.dispatch({ type: "utils/changeLoading", payload: true })
+  store.dispatch({ type: "utils/changeLoading", payload: true });
   return config;
 };
 
 const responseInterceptor = (response) => {
-  store.dispatch({ type: "utils/changeLoading", payload: false })
+  store.dispatch({ type: "utils/changeLoading", payload: false });
   return response;
 };
 
-export { requestInterceptor, responseInterceptor };
+const errorInterceptor = (error) => {
+  store.dispatch({ type: "utils/changeError", payload: true });
+  return Promise.reject(error);
+};
+
+export { requestInterceptor, responseInterceptor, errorInterceptor };
