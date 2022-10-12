@@ -2,14 +2,21 @@ import React from "react";
 import { useDispatch } from "react-redux";
 
 import { changeShowFilter } from "../store/slices/utilsSlice";
+import { sortUsersAlphabet, sortUsersBirth } from "../store/slices/usersSlice";
 
 import exit_icon from "../assets/icons/exit_icon.svg";
 
-function FilterComponent() {
+function FilterComponent({ isShown }) {
   const updateShowFilter = useDispatch();
+  const updateUsers = useDispatch();
 
   return (
-    <div className="absolute bg-[#050510] w-full h-full z-[9999] bg-opacity-[0.16] flex overflow-hidden">
+    <div
+      className={
+        "absolute bg-[#050510] w-full h-full z-[9999] bg-opacity-[0.16] overflow-hidden " +
+        (isShown ? "flex" : "hidden")
+      }
+    >
       <div className="absolute w-screen h-screen flex">
         <div className="bg-white sm:w-[373px] sm:h-[192px] sm:rounded-[20px] rounded-t-[20px] w-full h-[218px] m-auto bottom-0 flex flex-col justify-between items-center absolute sm:relative">
           <hr className="border-2 border-[#C3C3C6] rounded-full bg-[#C3C3C6] w-14 absolute top-3 sm:hidden" />
@@ -35,6 +42,11 @@ function FilterComponent() {
                 className="h-5 w-5 accent-custom-purple text-red-700 "
                 name="filter"
                 id="alphabet"
+                defaultChecked
+                onChange={() => {
+                  updateShowFilter(changeShowFilter(false));
+                  updateUsers(sortUsersAlphabet());
+                }}
               />
             </div>
             <div className="flex flex-row-reverse">
@@ -46,6 +58,10 @@ function FilterComponent() {
                 className="h-5 w-5 accent-custom-purple"
                 name="filter"
                 id="birth"
+                onChange={() => {
+                  updateShowFilter(changeShowFilter(false));
+                  updateUsers(sortUsersBirth());
+                }}
               />
             </div>
           </div>

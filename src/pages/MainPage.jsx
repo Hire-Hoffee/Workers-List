@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
-import { changeUsersArray } from "../store/slices/usersSlice";
+import { changeUsersArray, sortUsersAlphabet } from "../store/slices/usersSlice";
 
 import UserCard from "../components/UserCard";
 import TopAppBarComponent from "../components/UI/TopAppBarComponent";
@@ -20,6 +20,7 @@ function MainPage() {
     (async () => {
       const result = (await apiServices.getSpecificUsers(query)).data.items;
       updateUsers(changeUsersArray(result));
+      updateUsers(sortUsersAlphabet());
     })();
   }, [query]);
 

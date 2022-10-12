@@ -1,7 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-
 import InputComponent from "./InputComponent";
 import NavigationLinks from "./NavigationLinks";
 import FilterComponent from "../FilterComponent";
@@ -17,7 +16,7 @@ function TopAppBarComponent() {
 
       <InputComponent />
 
-      {isOpenFilter ? <FilterComponent /> : false}
+      <FilterComponent isShown={isOpenFilter ? true : false} />
 
       <NavigationLinks />
     </div>
