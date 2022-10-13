@@ -92,9 +92,17 @@ function UserDetailsPage() {
               <div className="flex font-medium">
                 <img src={phone_icon} alt="phone_icon" className="mr-[14px]" />
                 <p>
-                  {user.phone
-                    ? parseNumber(user.phone).formatInternational()
-                    : ""}
+                  <a
+                    href={
+                      "tel:" + (user.phone
+                        ? parseNumber(user.phone).formatInternational()
+                        : "")
+                    }
+                  >
+                    {user.phone
+                      ? parseNumber(user.phone).formatInternational()
+                      : ""}
+                  </a>
                 </p>
               </div>
             </div>
