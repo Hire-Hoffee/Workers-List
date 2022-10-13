@@ -12,6 +12,8 @@ import TopAppBarComponent from "../components/UI/TopAppBarComponent";
 import LoadingComponent from "../components/LoadingComponent";
 import NotFoundComponent from "../components/NotFoundComponent";
 import NewYear from "../components/UI/NewYear";
+import OfflineComponent from "../components/OfflineComponent";
+import OnlineComponent from "../components/OnlineComponent";
 
 import apiServices from "../api/apiServices";
 
@@ -34,6 +36,14 @@ function MainPage() {
 
   return (
     <div className="relative">
+      {isOnline === "offline" ? (
+        <OfflineComponent />
+      ) : isOnline === "online" && isLoading ? (
+        <OnlineComponent />
+      ) : (
+        false
+      )}
+
       <TopAppBarComponent />
 
       {isLoading ? (

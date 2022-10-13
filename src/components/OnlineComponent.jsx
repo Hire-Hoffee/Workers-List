@@ -2,11 +2,9 @@ import React from "react";
 
 function OnlineComponent() {
   return (
-    <div className="absolute w-full h-full bg-[#6534FF] inset-0 z-10 text-white">
-      <div className="mx-6 mt-4 sm:block hidden">
-        <h1 className="font-bold text-2xl mb-5">Поиск</h1>
-        <p>Секундочку, гружусь...</p>
-      </div>
+    <div className="absolute sm:inset-0 sm:h-[110px] right-4 left-4 top-[85vh] bg-[#6534FF] sm:mx-0 sm:rounded-none rounded-xl py-[14px] px-4 text-white z-50">
+      <h1 className="font-bold text-2xl mb-5 sm:block hidden">Поиск</h1>
+      <p>Секундочку, гружусь...</p>
     </div>
   );
 }
