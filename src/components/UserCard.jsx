@@ -28,7 +28,7 @@ function UserCard({ user }) {
             </h3>
             <span className="text-[#97979B]">{user.userTag.toLowerCase()}</span>
           </div>
-          <p className="text-[13px] text-[#55555C]">{user.position}</p>
+          <p className="text-[13px] text-[#55555C]">{user.department[0].toUpperCase() + user.department.slice(1)}</p>
         </div>
       </div>
     </Link>
