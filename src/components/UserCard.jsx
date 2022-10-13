@@ -1,15 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function UserCard({ user }) {
+  const isFilterBirth = useSelector((state) => state.utils.data.isFilterBirth);
+
   return (
     <Link to={`/user/${user.id}`}>
       <div className="w-full h-20 flex items-center relative">
         <div className="absolute right-0 text-[15px] font-normal text-[#55555C]">
-          {new Date(user.birthday).toLocaleString("ru", {
+          {isFilterBirth ? new Date(user.birthday).toLocaleString("ru", {
             month: "short",
             day: "numeric",
-          })}
+          }) : false}
         </div>
         <div>
           <img

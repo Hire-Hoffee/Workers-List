@@ -7,6 +7,7 @@ export const utilsSlice = createSlice({
       isLoading: false,
       isError: false,
       isOpenFilter: false,
+      isFilterBirth: false
     },
   },
   reducers: {
@@ -19,9 +20,12 @@ export const utilsSlice = createSlice({
     changeShowFilter: (state, action) => {
       state.data.isOpenFilter = action.payload;
     },
+    changeShowYear: (state, action) => {
+      state.data.isFilterBirth = action.payload;
+    },
   },
 });
 
-export const { changeLoading, changeError, changeShowFilter } = utilsSlice.actions;
+export const { changeLoading, changeError, changeShowFilter, changeShowYear } = utilsSlice.actions;
 
 export default utilsSlice.reducer;

@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 
-import { changeShowFilter } from "../store/slices/utilsSlice";
+import { changeShowFilter, changeShowYear } from "../store/slices/utilsSlice";
 import { sortUsersAlphabet, sortUsersBirth } from "../store/slices/usersSlice";
 
 import exit_icon from "../assets/icons/exit_icon.svg";
@@ -44,6 +44,7 @@ function FilterComponent({ isShown }) {
                 id="alphabet"
                 defaultChecked
                 onChange={() => {
+                  updateShowFilter(changeShowYear(false));
                   updateShowFilter(changeShowFilter(false));
                   updateUsers(sortUsersAlphabet());
                 }}
@@ -59,6 +60,7 @@ function FilterComponent({ isShown }) {
                 name="filter"
                 id="birth"
                 onChange={() => {
+                  updateShowFilter(changeShowYear(true));
                   updateShowFilter(changeShowFilter(false));
                   updateUsers(sortUsersBirth());
                 }}
