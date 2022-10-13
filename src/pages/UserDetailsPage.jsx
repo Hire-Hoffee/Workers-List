@@ -19,6 +19,18 @@ function UserDetailsPage() {
   const { user_id } = useParams();
   const navigate = useNavigate();
 
+  function declOfNum(number, words) {
+    return (
+      number +
+      " " +
+      words[
+        number % 100 > 4 && number % 100 < 20
+          ? 2
+          : [2, 0, 1, 1, 1, 2][number % 10 < 5 ? Math.abs(number) % 10 : 5]
+      ]
+    );
+  }
+
   useEffect(() => {
     (async () => {
       if (usersArray.length === 0) {
@@ -81,9 +93,11 @@ function UserDetailsPage() {
               </div>
               <div>
                 <p className="text-[#97979B]">
-                  {new Date().getFullYear() -
-                    new Date(user.birthday).getFullYear()}{" "}
-                  лет
+                  {declOfNum(
+                    new Date().getFullYear() -
+                      new Date(user.birthday).getFullYear(),
+                    ["год", "года", "лет"]
+                  )}
                 </p>
               </div>
             </div>
@@ -94,7 +108,8 @@ function UserDetailsPage() {
                 <p>
                   <a
                     href={
-                      "tel:" + (user.phone
+                      "tel:" +
+                      (user.phone
                         ? parseNumber(user.phone).formatInternational()
                         : "")
                     }
