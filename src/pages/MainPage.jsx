@@ -19,6 +19,7 @@ function MainPage() {
   const usersArray = useSelector((state) => state.users.data);
   const isLoading = useSelector((state) => state.utils.data.isLoading);
   const isFilterBirth = useSelector((state) => state.utils.data.isFilterBirth);
+  const isOnline = useSelector((state) => state.utils.data.isOnline);
   const { query } = useParams();
   const updateUsers = useDispatch();
 
@@ -29,7 +30,7 @@ function MainPage() {
       updateUsers(changeUsersArray(result));
       updateUsers(sortUsersAlphabet());
     })();
-  }, [query]);
+  }, [query, isOnline === "online"]);
 
   return (
     <div className="relative">
