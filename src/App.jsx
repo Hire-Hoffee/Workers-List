@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
-import { changeIsOnline } from "./store/slices/utilsSlice";
+import { changeUtilsState } from "./store/slices/utilsSlice";
 
 import ErrorPage from "./pages/ErrorPage";
 
@@ -11,8 +11,8 @@ function App() {
   const navigate = useNavigate();
   const updateOnline = useDispatch();
 
-  const setOnline = () => updateOnline(changeIsOnline("online"));
-  const setOffline = () => updateOnline(changeIsOnline("offline"));
+  const setOnline = () => updateOnline(changeUtilsState({ stateName: "isOnline", stateValue: "online" }));
+  const setOffline = () => updateOnline(changeUtilsState({ stateName: "isOnline", stateValue: "offline" }));
 
   useEffect(() => {
     if (window.location.pathname === "/") {

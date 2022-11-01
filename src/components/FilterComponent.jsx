@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 
-import { changeShowFilter, changeShowYear } from "../store/slices/utilsSlice";
+import { changeUtilsState } from "../store/slices/utilsSlice";
 import { sortUsersAlphabet, sortUsersBirth } from "../store/slices/usersSlice";
 
 import exit_icon from "../assets/icons/exit_icon.svg";
@@ -22,7 +22,7 @@ function FilterComponent({ isShown }) {
           <button
             className="absolute top-6 right-6 hidden sm:block"
             onClick={() => {
-              updateReduxState(changeShowFilter(false));
+              updateReduxState(changeUtilsState({ stateName: "isOpenFilter", stateValue: false }));
             }}
           >
             <img src={exit_icon} alt="exit_icon" />
@@ -43,8 +43,8 @@ function FilterComponent({ isShown }) {
                 id="alphabet"
                 defaultChecked
                 onChange={() => {
-                  updateReduxState(changeShowYear(false));
-                  updateReduxState(changeShowFilter(false));
+                  updateReduxState(changeUtilsState({ stateName: "isFilterBirth", stateValue: false }));
+                  updateReduxState(changeUtilsState({ stateName: "isOpenFilter", stateValue: false }));
                   updateReduxState(sortUsersAlphabet());
                 }}
               />
@@ -59,8 +59,8 @@ function FilterComponent({ isShown }) {
                 name="filter"
                 id="birth"
                 onChange={() => {
-                  updateReduxState(changeShowYear(true));
-                  updateReduxState(changeShowFilter(false));
+                  updateReduxState(changeUtilsState({ stateName: "isFilterBirth", stateValue: true }));
+                  updateReduxState(changeUtilsState({ stateName: "isOpenFilter", stateValue: false }));
                   updateReduxState(sortUsersBirth());
                 }}
               />

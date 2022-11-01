@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { changeShowFilter } from "../../store/slices/utilsSlice";
+import { changeUtilsState } from "../../store/slices/utilsSlice";
 import { usersSearching } from "../../store/slices/usersSlice";
 
 import search_icon from "../../assets/icons/search_icon.svg";
@@ -31,7 +31,7 @@ function InputComponent() {
       <div
         className="flex absolute inset-y-0 right-0 items-center pr-3 cursor-pointer"
         onClick={() => {
-          updateReduxState(changeShowFilter(true));
+          updateReduxState(changeUtilsState({ stateName: "isOpenFilter", stateValue: true }));
         }}
       >
         {isFilterBirth ? (
