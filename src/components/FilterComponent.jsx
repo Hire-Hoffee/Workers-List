@@ -7,8 +7,7 @@ import { sortUsersAlphabet, sortUsersBirth } from "../store/slices/usersSlice";
 import exit_icon from "../assets/icons/exit_icon.svg";
 
 function FilterComponent({ isShown }) {
-  const updateShowFilter = useDispatch();
-  const updateUsers = useDispatch();
+  const updateReduxState = useDispatch();
 
   return (
     <div
@@ -23,7 +22,7 @@ function FilterComponent({ isShown }) {
           <button
             className="absolute top-6 right-6 hidden sm:block"
             onClick={() => {
-              updateShowFilter(changeShowFilter(false));
+              updateReduxState(changeShowFilter(false));
             }}
           >
             <img src={exit_icon} alt="exit_icon" />
@@ -44,9 +43,9 @@ function FilterComponent({ isShown }) {
                 id="alphabet"
                 defaultChecked
                 onChange={() => {
-                  updateShowFilter(changeShowYear(false));
-                  updateShowFilter(changeShowFilter(false));
-                  updateUsers(sortUsersAlphabet());
+                  updateReduxState(changeShowYear(false));
+                  updateReduxState(changeShowFilter(false));
+                  updateReduxState(sortUsersAlphabet());
                 }}
               />
             </div>
@@ -60,9 +59,9 @@ function FilterComponent({ isShown }) {
                 name="filter"
                 id="birth"
                 onChange={() => {
-                  updateShowFilter(changeShowYear(true));
-                  updateShowFilter(changeShowFilter(false));
-                  updateUsers(sortUsersBirth());
+                  updateReduxState(changeShowYear(true));
+                  updateReduxState(changeShowFilter(false));
+                  updateReduxState(sortUsersBirth());
                 }}
               />
             </div>

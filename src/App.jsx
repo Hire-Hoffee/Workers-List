@@ -11,17 +11,21 @@ function App() {
   const navigate = useNavigate();
   const updateOnline = useDispatch();
 
-  window.addEventListener("offline", (e) => {
-    updateOnline(changeIsOnline("offline"));
-  });
-  window.addEventListener("online", (e) => {
-    updateOnline(changeIsOnline("online"));
-  });
+  const setOnline = () => updateOnline(changeIsOnline("online"));
+  const setOffline = () => updateOnline(changeIsOnline("offline"));
 
   useEffect(() => {
     if (window.location.pathname === "/") {
       return navigate("/main/all");
     }
+
+    window.addEventListener("offline", setOffline);
+    window.addEventListener("online", setOnline);
+
+    return () => {
+      window.removeEventListener("offline", setOffline);
+      window.removeEventListener("online", setOnline);
+    };
   });
 
   return (

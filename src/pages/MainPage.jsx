@@ -19,9 +19,9 @@ import apiServices from "../api/apiServices";
 
 function MainPage() {
   const usersArray = useSelector((state) => state.users.data);
-  const isLoading = useSelector((state) => state.utils.data.isLoading);
-  const isFilterBirth = useSelector((state) => state.utils.data.isFilterBirth);
-  const isOnline = useSelector((state) => state.utils.data.isOnline);
+  const { isLoading, isFilterBirth, isOnline } = useSelector(
+    (state) => state.utils.data
+  );
   const { query } = useParams();
   const updateUsers = useDispatch();
 
@@ -48,7 +48,7 @@ function MainPage() {
 
       {isLoading ? (
         <LoadingComponent />
-      ) : usersArray.length == 0 ? (
+      ) : usersArray.length === 0 ? (
         <NotFoundComponent />
       ) : (
         <div className="m-4">

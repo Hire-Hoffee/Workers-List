@@ -13,8 +13,7 @@ function InputComponent() {
   const isFilterBirth = useSelector((state) => state.utils.data.isFilterBirth);
   const [activeSearch, setActiveSearch] = useState("");
   const [input, setInput] = useState("");
-  const updateShowFilter = useDispatch();
-  const updateUsers = useDispatch();
+  const updateReduxState = useDispatch();
 
   return (
     <div className="mx-4 relative mt-[50px] sm:mt-0">
@@ -32,7 +31,7 @@ function InputComponent() {
       <div
         className="flex absolute inset-y-0 right-0 items-center pr-3 cursor-pointer"
         onClick={() => {
-          updateShowFilter(changeShowFilter(true));
+          updateReduxState(changeShowFilter(true));
         }}
       >
         {isFilterBirth ? (
@@ -45,7 +44,7 @@ function InputComponent() {
         value={input}
         onInput={(e) => {
           setInput(e.target.value);
-          updateUsers(usersSearching(input));
+          updateReduxState(usersSearching(input));
         }}
         type="text"
         className={
