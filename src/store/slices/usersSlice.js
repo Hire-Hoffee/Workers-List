@@ -7,11 +7,11 @@ export const usersSlice = createSlice({
     data: [],
   },
   reducers: {
-    changeUsersArray: (state, action) => {
-      state.data = [...action.payload];
-      state.searchedArray = [...action.payload];
+    changeUsersArray: (state, { payload }) => {
+      state.data = [...payload];
+      state.searchedArray = [...payload];
     },
-    sortUsersBirth: (state, action) => {
+    sortUsersBirth: (state) => {
       state.data.forEach((data) => {
         const day = data.birthday.split("-");
         const currentYear = new Date().getFullYear();
@@ -31,7 +31,7 @@ export const usersSlice = createSlice({
         return a - b;
       });
     },
-    sortUsersAlphabet: (state, action) => {
+    sortUsersAlphabet: (state) => {
       state.data.sort((a, b) => {
         a = a.firstName.toLowerCase();
         b = b.firstName.toLowerCase();
@@ -40,13 +40,13 @@ export const usersSlice = createSlice({
         return 0;
       });
     },
-    usersSearching: (state, action) => {
+    usersSearching: (state, { payload }) => {
       state.data = state.searchedArray.filter((item) => {
         return (
           (item.firstName + " " + item.lastName).match(
-            new RegExp(action.payload, "gi")
+            new RegExp(payload, "gi")
           ) != null ||
-          item.userTag.match(new RegExp(action.payload, "gi")) != null
+          item.userTag.match(new RegExp(payload, "gi")) != null
         );
       });
     },
