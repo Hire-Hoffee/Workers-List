@@ -32,7 +32,7 @@ export const usersSlice = createSlice({
       });
     },
     sortUsersAlphabet: (state, action) => {
-      state.data = [...state.data].sort((a, b) => {
+      state.data.sort((a, b) => {
         a = a.firstName.toLowerCase();
         b = b.firstName.toLowerCase();
         if (a < b) return -1;
