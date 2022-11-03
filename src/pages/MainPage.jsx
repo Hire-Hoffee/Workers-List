@@ -27,12 +27,25 @@ function MainPage() {
 
   useEffect(() => {
     (async () => {
-      // const result = (await apiServices.dynamicData()).data.items;
+      // const result = (await apiServices.dynamicData()).data.items; // Request for dynamic generated users data
       const result = (await apiServices.getSpecificUsers(query)).data.items;
       updateUsers(changeUsersArray(result));
       updateUsers(sortUsersAlphabet());
     })();
   }, [query, isOnline === "online"]);
+
+  function isNewYearLine(index, array) {
+    const year = new Date().getFullYear();
+    const month = array[index]?.birthday.split("-")[1] - 1;
+    const day = array[index]?.birthday.split("-")[2];
+    const nextMonth = array[index + 1]?.birthday.split("-")[1] - 1;
+    const nextDay = array[index + 1]?.birthday.split("-")[2];
+
+    return (
+      new Date(year, month, day).valueOf() >
+        new Date(year, nextMonth, nextDay).valueOf() && isFilterBirth
+    );
+  }
 
   return (
     <div className="relative">
@@ -55,20 +68,7 @@ function MainPage() {
           {usersArray.map((item, index, array) => (
             <div key={item.id}>
               <UserCard user={item} />
-              {new Date(
-                new Date().getFullYear(),
-                array[index]?.birthday.split("-")[1] - 1,
-                array[index]?.birthday.split("-")[2]
-              ).valueOf() >
-                new Date(
-                  new Date().getFullYear(),
-                  array[index + 1]?.birthday.split("-")[1] - 1,
-                  array[index + 1]?.birthday.split("-")[2]
-                ).valueOf() && isFilterBirth ? (
-                <NewYear />
-              ) : (
-                false
-              )}
+              {isNewYearLine(index, array) ? <NewYear /> : false}
             </div>
           ))}
         </div>
