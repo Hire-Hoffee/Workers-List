@@ -6,13 +6,14 @@ import { sortUsersAlphabet, sortUsersBirth } from "../store/slices/usersSlice";
 
 import exit_icon from "../assets/icons/exit_icon.svg";
 
-function FilterComponent() {
+function FilterComponent({ isShown }) {
   const updateReduxState = useDispatch();
 
   return (
     <div
       className={
-        "absolute bg-[#050510] w-full h-full z-[9999] bg-opacity-[0.16] overflow-hidden"
+        "absolute bg-[#050510] w-full h-full z-[9999] bg-opacity-[0.16] overflow-hidden " +
+        (isShown ? "flex" : "hidden")
       }
     >
       <div className="absolute w-screen h-screen flex">

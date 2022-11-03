@@ -18,7 +18,7 @@ function TopAppBarComponent() {
         <InputComponent />
       </div>
 
-      {isOpenFilter && <FilterComponent />}
+      <FilterComponent isShown={isOpenFilter ? true : false} />
 
       <NavigationLinks />
     </div>
