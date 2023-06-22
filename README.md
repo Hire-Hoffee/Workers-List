@@ -1,6 +1,6 @@
 # Приложение для стажировки
 
-### Ссылка на [приложение](https://workerslist.onrender.com).
+### Ссылка на [приложение](https://employeeslist-kpoj.onrender.com).
 
 - Ссылка на [техническое задание](https://github.com/appKODE/trainee-test-frontend).
 - Ссылка на [макет в Figma](https://www.figma.com/file/GRRKONipVClULsfdCAuVs1/KODE-Trainee-Dev-%D0%9E%D1%81%D0%B5%D0%BD%D1%8C'21?node-id=11%3A14414).
