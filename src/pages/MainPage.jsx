@@ -29,6 +29,7 @@ function MainPage() {
     (async () => {
       // const result = (await apiServices.dynamicData()).data.items; // Request for dynamic generated users data
       const result = (await apiServices.getSpecificUsers(query)).data.items;
+      result.forEach((item) => (item.avatarUrl = "https://i.pravatar.cc/100"));
       updateUsers(changeUsersArray(result));
       updateUsers(sortUsersAlphabet());
     })();
