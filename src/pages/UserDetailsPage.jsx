@@ -36,6 +36,7 @@ function UserDetailsPage() {
       if (usersArray.length === 0) {
         const result = (await apiServices.getAllUsers()).data.items;
         const userArray = result.filter((item) => item.id === user_id);
+        userArray[0].avatarUrl = "https://i.pravatar.cc/100";
         setUser(userArray[0]);
         return;
       }
@@ -52,11 +53,7 @@ function UserDetailsPage() {
         <div>
           <div className="h-[280px] bg-[#F7F7F8] flex items-end justify-center">
             <button className="absolute top-7 left-8">
-              <img
-                src={arrow_back_icon}
-                alt="arrow_back_icon"
-                onClick={() => navigate(-1)}
-              />
+              <img src={arrow_back_icon} alt="arrow_back_icon" onClick={() => navigate(-1)} />
             </button>
 
             <div className="mb-8 flex flex-col justify-between items-center h-[184px]">
@@ -93,11 +90,11 @@ function UserDetailsPage() {
               </div>
               <div>
                 <p className="text-[#97979B]">
-                  {declOfNum(
-                    new Date().getFullYear() -
-                      new Date(user.birthday).getFullYear(),
-                    ["год", "года", "лет"]
-                  )}
+                  {declOfNum(new Date().getFullYear() - new Date(user.birthday).getFullYear(), [
+                    "год",
+                    "года",
+                    "лет",
+                  ])}
                 </p>
               </div>
             </div>
@@ -108,15 +105,10 @@ function UserDetailsPage() {
                 <p>
                   <a
                     href={
-                      "tel:" +
-                      (user.phone
-                        ? parseNumber(user.phone).formatInternational()
-                        : "")
+                      "tel:" + (user.phone ? parseNumber(user.phone).formatInternational() : "")
                     }
                   >
-                    {user.phone
-                      ? parseNumber(user.phone).formatInternational()
-                      : ""}
+                    {user.phone ? parseNumber(user.phone).formatInternational() : ""}
                   </a>
                 </p>
               </div>
