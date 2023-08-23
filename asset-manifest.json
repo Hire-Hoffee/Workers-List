@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/Workers-List/static/css/main.1acea5dd.css",
+    "main.js": "/Workers-List/static/js/main.ccfbe2c0.js",
+    "static/media/Inter-Bold.ttf": "/Workers-List/static/media/Inter-Bold.88fa7ae373b07b41ecce.ttf",
+    "static/media/Inter-SemiBold.ttf": "/Workers-List/static/media/Inter-SemiBold.4d56bb21f2399db8ad48.ttf",
+    "static/media/Inter-Medium.ttf": "/Workers-List/static/media/Inter-Medium.6dcbc9bed1ec438907ee.ttf",
+    "static/media/Inter-Regular.ttf": "/Workers-List/static/media/Inter-Regular.e89cb19905e7db5591b0.ttf",
+    "static/media/not_found_icon.svg": "/Workers-List/static/media/not_found_icon.d575396525b92c878b876c4fe3b8ce8a.svg",
+    "static/media/error_icon.svg": "/Workers-List/static/media/error_icon.ed99f0ae07034edd80cd24c321c355b5.svg",
+    "static/media/phone_icon.svg": "/Workers-List/static/media/phone_icon.b88e8b451761411cb72007eebb52bb10.svg",
+    "static/media/filter_icon.svg": "/Workers-List/static/media/filter_icon.6d9a24480a172926cfc1379681c89002.svg",
+    "static/media/filter_icon_active.svg": "/Workers-List/static/media/filter_icon_active.6433afba08209f9649d31fa10ad287b0.svg",
+    "static/media/star_icon.svg": "/Workers-List/static/media/star_icon.18f917018acfb89d1c4e4162650f2a8d.svg",
+    "static/media/search_icon.svg": "/Workers-List/static/media/search_icon.a05f94ded6429b82f2f3e55def51bde0.svg",
+    "static/media/search_icon_active.svg": "/Workers-List/static/media/search_icon_active.d363c968ce22ff7b71cb7ba9f2ed669a.svg",
+    "static/media/arrow_back_icon.svg": "/Workers-List/static/media/arrow_back_icon.3c53fbbb87f7a04507356482e3df5baf.svg",
+    "static/media/exit_icon.svg": "/Workers-List/static/media/exit_icon.4497c5c062691d0a7625aa97017252ef.svg",
+    "index.html": "/Workers-List/index.html",
+    "main.1acea5dd.css.map": "/Workers-List/static/css/main.1acea5dd.css.map",
+    "main.ccfbe2c0.js.map": "/Workers-List/static/js/main.ccfbe2c0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1acea5dd.css",
+    "static/js/main.ccfbe2c0.js"
+  ]
+}
