@@ -5,6 +5,12 @@
 - Ссылка на [техническое задание](https://github.com/appKODE/trainee-test-frontend).
 - Ссылка на [макет в Figma](https://www.figma.com/file/GRRKONipVClULsfdCAuVs1/KODE-Trainee-Dev-%D0%9E%D1%81%D0%B5%D0%BD%D1%8C'21?node-id=11%3A14414).
 
+<br/>
+
+![All list](https://i.imgur.com/jWFXcHL.png)
+![Worker](https://i.imgur.com/wMtevTb.png)
+![Mobile](https://i.imgur.com/IWZt7HX.png)
+
 ## Декомпозиция проекта
 
 #### Подготовка проекта (30 мин.) (реальное время ~ 1 ч.)
