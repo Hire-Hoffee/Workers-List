@@ -15,7 +15,7 @@ function App() {
   const setOffline = () => updateOnline(changeUtilsState({ stateName: "isOnline", stateValue: "offline" }));
 
   useEffect(() => {
-    if (window.location.pathname === "/") {
+    if (!window.location.hash) {
       return navigate("/main/all");
     }
 
