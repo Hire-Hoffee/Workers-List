@@ -12,7 +12,7 @@ function FilterComponent({ isShown }) {
   return (
     <div
       className={
-        "absolute bg-[#050510] w-full h-full z-[9999] bg-opacity-[0.16] overflow-hidden " +
+        "absolute bg-[#050510] w-screen h-screen z-[9999] bg-opacity-[0.16] overflow-hidden " +
         (isShown ? "flex" : "hidden")
       }
     >
